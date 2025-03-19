@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taniti Island - Experience Paradise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #2c7873;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #ffcb77;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #1d5350;
+        }
+        
+        .active {
+            background-color: #1d5350;
+        }
+        
+        .hero {
+            background-image: url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin-left: 50px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcb77;
+            color: #333;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ffc14d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #2c7873;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ffcb77;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .features {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .feature-card:hover .feature-image img {
+            transform: scale(1.05);
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c7873;
+        }
+        
+        .feature-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .activities {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .breadcrumb {
+            padding: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #2c7873;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 10px;
+        }
+        
+        .activity-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .activity-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .activity-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .activity-card:hover .activity-image img {
+            transform: scale(1.05);
+        }
+        
+        .activity-content {
+            padding: 20px;
+        }
+        
+        .activity-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c7873;
+        }
+        
+        .activity-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .activity-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px 20px;
+        }
+        
+        .activity-price {
+            font-weight: bold;
+            color: #2c7873;
+        }
+        
+        .info {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .info-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #2c7873;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-card ul {
+            list-style-type: none;
+        }
+        
+        .info-card ul li {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        
+        .info-card ul li:before {
+            content: "•";
+            color: #ffcb77;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        footer {
+            background-color: #2c7873;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #ffcb77;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #ffcb77;
+        }
+        
+        .footer-bottom {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px 5px 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .feature-cards, .activity-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">Taniti<span>Island</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-link" class="active">Home</a></li>
+                    <li><a href="#" id="activities-link">Activities</a></li>
+                    <li><a href="#">Lodging</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="#">Transportation</a></li>
+                    <li><a href="#">Info</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="home-page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Taniti Island</h1>
+                <p>Discover paradise in the Pacific with pristine beaches, lush rainforests, and unforgettable adventures.</p>
+                <a href="#" id="explore-activities-btn" class="btn">Explore Activities</a>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Taniti</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="/api/placeholder/600/400" alt="Taniti Island landscape">
+                    </div>
+                    <div class="about-text">
+                        <p>Taniti is a small, tropical island in the Pacific. While the island has an area of less than 500 square miles, the terrain is varied and includes both sandy and rocky beaches, a small but safe harbor, lush tropical rainforests, and a mountainous interior that includes a small, active volcano.</p>
+                        <p>With an indigenous population of about 20,000, Taniti offers visitors an authentic cultural experience alongside natural wonders. Until a recent increase in tourism, most of the Tanitian economy was dominated by fishing or agriculture.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Island Highlights</h2>
+                </div>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <img src="/api/placeholder/400/250" alt="Beautiful beaches">
+                        </div>
+                        <div class="feature-content">
+                            <h3>Pristine Beaches</h3>
+                            <p>Explore white sandy beaches that encircle Yellow Leaf Bay and other stunning coastal areas around the island.</p>
+                            <a href="#" class="btn">View Beaches</a>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <img src="/api/placeholder/400/250" alt="Rainforest">
+                        </div>
+                        <div class="feature-content">
+                            <h3>Lush Rainforests</h3>
+                            <p>Experience the vibrant ecosystem of our tropical rainforests through guided hikes and zip-lining adventures.</p>
+                            <a href="#" class="btn">Explore Rainforests</a>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-image">
+                            <img src="/api/placeholder/400/250" alt="Active volcano">
+                        </div>
+                        <div class="feature-content">
+                            <h3>Active Volcano</h3>
+                            <p>Witness the awe-inspiring power of nature with tours to our small, active volcano in the mountainous interior.</p>
+                            <a href="#" class="btn">View Volcano Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Travel Information</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Getting Around</h3>
+                        <ul>
+                            <li>Public buses serve Taniti City (5 a.m. to 11 p.m. daily)</li>
+                            <li>Private buses serve the rest of the island</li>
+                            <li>Taxis available in Taniti City</li>
+                            <li>Rental cars available near the airport</li>
+                            <li>Bikes and helmets for rent (helmets required by law)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Good to Know</h3>
+                        <ul>
+                            <li>Power outlets are 120 volts (same as United States)</li>
+                            <li>U.S. dollar is the main currency (euros and yen also accepted)</li>
+                            <li>Many younger Tanitians speak fluent English</li>
+                            <li>One hospital and several clinics available with multilingual staff</li>
+                            <li>Violent crime is very rare but be aware of pickpocketing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="activities-page" style="display: none;">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#" id="home-breadcrumb">Home</a>
+                <span>></span>
+                <a href="#" class="active">Activities</a>
+            </div>
+        </div>
+
+        <section class="activities">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Island Activities</h2>
+                </div>
+                <div class="activity-cards">
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="/api/placeholder/400/250" alt="Rainforest Hiking">
+                        </div>
+                        <div class="activity-content">
+                            <h3>Rainforest Hiking</h3>
+                            <p>Explore the lush rainforest with guided hiking tours. Experience the diverse flora and fauna of Taniti's pristine ecosystem.</p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-price">From $45</div>
+                            <a href="#" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="/api/placeholder/400/250" alt="Zip-lining Adventure">
+                        </div>
+                        <div class="activity-content">
+                            <h3>Zip-lining Adventure</h3>
+                            <p>Soar through the rainforest canopy on our thrilling zip-line course with spectacular views of the island.</p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-price">From $75</div>
+                            <a href="#" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="/api/placeholder/400/250" alt="Volcano Tour">
+                        </div>
+                        <div class="activity-content">
+                            <h3>Volcano Tour</h3>
+                            <p>Visit Taniti's active volcano with expert guides who will share geological insights and local legends.</p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-price">From $60</div>
+                            <a href="#" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="/api/placeholder/400/250" alt="Chartered Fishing Tour">
+                        </div>
+                        <div class="activity-content">
+                            <h3>Chartered Fishing</h3>
+                            <p>Join experienced local fishermen for a day on the water and try your luck at catching some of the Pacific's most prized fish.</p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-price">From $120</div>
+                            <a href="#" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="/api/placeholder/400/250" alt="Snorkeling">
+                        </div>
+                        <div class="activity-content">
+                            <h3>Snorkeling Adventure</h3>
+                            <p>Discover the vibrant underwater world around Taniti with guided snorkeling tours at the best reef locations.</p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-price">From $55</div>
+                            <a href="#" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="/api/placeholder/400/250" alt="Helicopter Tours">
+                        </div>
+                        <div class="activity-content">
+                            <h3>Helicopter Tour</h3>
+                            <p>Experience Taniti from above with a breathtaking helicopter tour showcasing the island's diverse landscapes.</p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-price">From $199</div>
+                            <a href="#" class="btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Activities</a></li>
+                        <li><a href="#">Accommodations</a></li>
+                        <li><a href="#">Dining</a></li>
+                        <li><a href="#">Transportation</a></li>
+                        <li><a href="#">Island Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Visitor Info</h3>
+                    <ul>
+                        <li><a href="#">Travel Requirements</a></li>
+                        <li><a href="#">Currency & Banking</a></li>
+                        <li><a href="#">Health & Safety</a></li>
+                        <li><a href="#">Local Customs</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About Taniti</h3>
+                    <ul>
+                        <li><a href="#">Our History</a></li>
+                        <li><a href="#">Culture</a></li>
+                        <li><a href="#">Geography</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Stay Connected</h3>
+                    <ul>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Taniti Island Tourism Board. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('activities-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'block';
+            document.getElementById('home-link').classList.remove('active');
+            document.getElementById('activities-link').classList.add('active');
+        });
+        
+        document.getElementById('home-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('home-link').classList.add('active');
+        });
+        
+        document.getElementById('home-breadcrumb').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('home-link').classList.add('active');
+        });
+        
+        document.getElementById('explore-activities-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'block';
+            document.getElementById('home-link').classList.remove('active');
+            document.getElementById('activities-link').classList.add('active');
+        });
+    </script>
+</body>
+</html>
