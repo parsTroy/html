@@ -464,6 +464,9 @@
                 <ul>
                     <li><a href="#" id="home-link" class="active">Home</a></li>
                     <li><a href="#" id="activities-link">Activities</a></li>
+                    <li><a href="#" id="food-menu-link">Food Menu</a></li>
+                    <li><a href="#" id="lodging-link">Lodging</a></li>
+                    <li><a href="#" id="faq-link">FAQ</a></li>
                 </ul>
             </nav>
         </div>
@@ -666,6 +669,156 @@
         </section>
     </div>
 
+    <div id="food-menu-page" style="display: none;">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#" id="home-breadcrumb-food">Home</a>
+                <span>></span>
+                <a href="#" class="active">Food Menu</a>
+            </div>
+        </div>
+
+        <section class="info">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Dining Options</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Restaurants</h3>
+                        <p>Taniti currently has 10 restaurants offering diverse dining options:</p>
+                        <ul>
+                            <li>Five restaurants serving local fish and rice</li>
+                            <li>Three restaurants offering American-style meals</li>
+                            <li>Two restaurants specializing in Pan-Asian cuisine</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Grocery Stores</h3>
+                        <p>For self-catering options, Taniti offers several shopping venues:</p>
+                        <ul>
+                            <li>Two full-service supermarkets</li>
+                            <li>Two smaller grocery stores</li>
+                            <li>One 24-hour convenience store</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="lodging-page" style="display: none;">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#" id="home-breadcrumb-lodging">Home</a>
+                <span>></span>
+                <a href="#" class="active">Lodging</a>
+            </div>
+        </div>
+
+        <section class="info">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Accommodation Options</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Available Lodging Types</h3>
+                        <ul>
+                            <li>Four-star luxury resort</li>
+                            <li>Family-owned hotels</li>
+                            <li>Charming bed and breakfasts</li>
+                            <li>Budget-friendly hostel</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Quality Assurance</h3>
+                        <p>All accommodations on Taniti are:</p>
+                        <ul>
+                            <li>Strictly regulated by the Tanitian government</li>
+                            <li>Regularly inspected for quality and safety</li>
+                            <li>Required to maintain high standards of service</li>
+                            <li>Suitable for various budget ranges</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="faq-page" style="display: none;">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#" id="home-breadcrumb-faq">Home</a>
+                <span>></span>
+                <a href="#" class="active">FAQ</a>
+            </div>
+        </div>
+
+        <section class="info">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>General Information</h3>
+                        <ul>
+                            <li>Power outlets are 120 volts (same as United States)</li>
+                            <li>U.S. dollar is the primary currency
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Euros and yen also accepted</li>
+                                    <li>Major credit cards widely accepted</li>
+                                    <li>Currency exchange available at several banks</li>
+                                </ul>
+                            </li>
+                            <li>Language
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Many younger Tanitians speak fluent English</li>
+                                    <li>Limited English in rural areas, especially among older residents</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Safety & Services</h3>
+                        <ul>
+                            <li>Healthcare
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>One hospital with multilingual staff</li>
+                                    <li>Several medical clinics available</li>
+                                </ul>
+                            </li>
+                            <li>Safety
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Violent crime is very rare</li>
+                                    <li>Be aware of occasional pickpocketing and petty crimes in tourist areas</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Local Regulations</h3>
+                        <ul>
+                            <li>Alcohol Service
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>No alcohol sales between midnight and 9:00 a.m.</li>
+                                    <li>Legal drinking age is 18 (not strictly enforced)</li>
+                                </ul>
+                            </li>
+                            <li>Holiday Operations
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Many tourist attractions and restaurants close during national holidays</li>
+                                    <li>Plan your visit accordingly around local holidays</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-bottom">
@@ -705,6 +858,81 @@
             document.getElementById('activities-page').style.display = 'block';
             document.getElementById('home-link').classList.remove('active');
             document.getElementById('activities-link').classList.add('active');
+        });
+
+        // Food Menu Page Navigation
+        document.getElementById('food-menu-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('food-menu-page').style.display = 'block';
+            document.getElementById('home-link').classList.remove('active');
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('food-menu-link').classList.add('active');
+        });
+
+        document.getElementById('home-breadcrumb-food').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('food-menu-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('food-menu-link').classList.remove('active');
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('home-link').classList.add('active');
+        });
+
+        // Lodging Page Navigation
+        document.getElementById('lodging-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('food-menu-page').style.display = 'none';
+            document.getElementById('lodging-page').style.display = 'block';
+            document.getElementById('home-link').classList.remove('active');
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('food-menu-link').classList.remove('active');
+            document.getElementById('lodging-link').classList.add('active');
+        });
+
+        document.getElementById('home-breadcrumb-lodging').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('lodging-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('food-menu-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('lodging-link').classList.remove('active');
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('food-menu-link').classList.remove('active');
+            document.getElementById('home-link').classList.add('active');
+        });
+
+        // FAQ Page Navigation
+        document.getElementById('faq-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('food-menu-page').style.display = 'none';
+            document.getElementById('lodging-page').style.display = 'none';
+            document.getElementById('faq-page').style.display = 'block';
+            document.getElementById('home-link').classList.remove('active');
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('food-menu-link').classList.remove('active');
+            document.getElementById('lodging-link').classList.remove('active');
+            document.getElementById('faq-link').classList.add('active');
+        });
+
+        document.getElementById('home-breadcrumb-faq').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('faq-page').style.display = 'none';
+            document.getElementById('activities-page').style.display = 'none';
+            document.getElementById('food-menu-page').style.display = 'none';
+            document.getElementById('lodging-page').style.display = 'none';
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('faq-link').classList.remove('active');
+            document.getElementById('activities-link').classList.remove('active');
+            document.getElementById('food-menu-link').classList.remove('active');
+            document.getElementById('lodging-link').classList.remove('active');
+            document.getElementById('home-link').classList.add('active');
         });
     </script>
 </body>
